@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.bak
+.svn/
+desktop.ini
+.buildpath
+.project
+.settings
+.idea
+*.tmproj
+*.sublime-project
+*.sublime-workspace
+.vscode/
