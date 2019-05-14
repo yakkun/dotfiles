@@ -14,7 +14,7 @@
   tags = tag
   log = log --stat
   tree = log --graph --date=short --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
-  delete-merged-branches = !git branch --merged | grep -v '*' | egrep -v '^master|release|develop$' | xargs git branch -d
+  delete-merged-branches = !git branch --merged | grep -vE '^*| master$| release$| develop$' | xargs git branch -d
   follow-upstream = pull --rebase upstream
   merge-upstream = pull --no-ff upstream
   remotes = remote -v
