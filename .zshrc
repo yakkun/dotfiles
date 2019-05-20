@@ -94,7 +94,6 @@ alias diff='colordiff -u'
 alias grep='grep --color'
 alias less='less -NR'
 alias dc='docker-compose'
-alias git='hub'
 
 # ===== Functions =====
 # Ctrl-g: Cd-to-ghq-repository
@@ -114,6 +113,8 @@ function fcd() {
   cd "`osascript -l JavaScript -e \"decodeURIComponent(Application('Finder').windows[0].target().url().replace('file://', '')).replace(/\\"/g, '\\\"');\"`" && pwd
 }
 
+# hub
+type hub >/dev/null && eval "$(hub alias -s)"
 # direnv
 type direnv >/dev/null && eval "$(direnv hook zsh)"
 # rbenv
