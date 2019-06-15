@@ -127,4 +127,4 @@ type pyenv-virtualenv-init >/dev/null && eval "$(pyenv virtualenv-init -)"
 type jenv >/dev/null && eval "$(jenv init -)"
 
 # tmux
-[[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]] && tmux
+[[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]] && tmux attach || tmux new
