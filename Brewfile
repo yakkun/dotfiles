@@ -99,6 +99,7 @@ cask "slack-beta"
 cask "tableplus"
 cask "tor-browser"
 cask "virtualbox"
+cask "visual-studio-code-insiders"
 cask "witch"
 cask "zoomus"
 mas "bz.tida.MacWinZipperLite", id: 414855915
