@@ -102,18 +102,18 @@ cask "virtualbox"
 cask "visual-studio-code-insiders"
 cask "witch"
 cask "zoomus"
-mas "bz.tida.MacWinZipperLite", id: 414855915
-mas "com.amazon.Kindle", id: 405399194
-mas "com.apple.dt.Xcode", id: 497799835
-mas "com.apple.iMovieApp", id: 408981434
-mas "com.apple.iWork.Keynote", id: 409183694
-mas "com.apple.iWork.Numbers", id: 409203825
-mas "com.apple.iWork.Pages", id: 409201541
-mas "com.coteditor.CotEditor", id: 1024640650
-mas "com.crowdcafe.windowmagnet", id: 441258766
-mas "com.fasthatchapps.gifgrabberosx", id: 668208984
-mas "com.ideasoncanvas.mindnode.macos", id: 1289197285
-mas "com.pixelmatorteam.pixelmator.x", id: 1289583905
-mas "com.skitch.skitch", id: 425955336
-mas "cx.c3.theunarchiver", id: 425424353
-mas "jp.naver.line.mac", id: 539883307
+mas "CotEditor", id: 1024640650
+mas "GIPHY CAPTURE", id: 668208984
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LINE", id: 539883307
+mas "Magnet", id: 441258766
+mas "MindNode", id: 1289197285
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
+mas "Skitch", id: 425955336
+mas "The Unarchiver", id: 425424353
+mas "WinArchiver Lite", id: 414855915
+mas "Xcode", id: 497799835
