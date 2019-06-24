@@ -50,3 +50,4 @@ zsh: ## Setup Zsh configuration
 homebrew: ## Setup Homebrew configuration
 	ln -vsf ${PWD}/Brewfile ${HOME}
 	brew bundle
+	brew autoupdate --start --upgrade --cleanup --enable-notification
