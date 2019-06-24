@@ -7,6 +7,7 @@ chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 
 ### Keyboard
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
