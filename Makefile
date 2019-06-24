@@ -34,8 +34,8 @@ karabiner: ## Setup Karabiner configuration
 
 .PHONY: ssh
 ssh: ## Setup ssh configuration
-	ln -vsf ${PWD}/.ssh/conf.d ${HOME}/.ssh
-	ln -vsf ${PWD}/.ssh/config ${HOME}/.ssh
+	ln -vsf ${PWD}/.ssh/conf.d ${HOME}/.ssh/
+	ln -vsf ${PWD}/.ssh/config ${HOME}/.ssh/
 
 .PHONY: vim
 vim: ## Setup Vim configuration
