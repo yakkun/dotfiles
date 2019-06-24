@@ -11,6 +11,13 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
+### Trackpad
+defaults write -g com.apple.mouse.tapBehavior -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
 ### General
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder AppleShowAllFiles YES
@@ -23,6 +30,7 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 ### Disable functions
 defaults write com.apple.dashboard mcx-disabled -bool true # Dashboard
