@@ -52,6 +52,6 @@ homebrew: ## Setup Homebrew configuration
 	brew bundle
 	brew autoupdate --start --upgrade --cleanup --enable-notification
 
-.PHONEY: tfenv
+.PHONY: tfenv
 tfenv: ## Setup Terraform-env
 	tfenv install latest
