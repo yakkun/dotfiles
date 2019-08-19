@@ -1,7 +1,7 @@
 ## -*- mode: makefile-gmake; -*-
 
 .PHONY: all
-all: osx-config alacritty tmux git karabiner ssh vim zsh homebrew
+all: osx-config alacritty tmux git karabiner ssh vim zsh homebrew tfenv
 
 .PHONY: help
 help:
@@ -51,3 +51,7 @@ homebrew: ## Setup Homebrew configuration
 	ln -vsf ${PWD}/Brewfile ${HOME}
 	brew bundle
 	brew autoupdate --start --upgrade --cleanup --enable-notification
+
+.PHONEY: tfenv
+tfenv: ## Setup Terraform-env
+	tfenv install latest
