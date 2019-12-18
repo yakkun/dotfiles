@@ -22,7 +22,7 @@
   editor = vim
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   commentchar = ";"
-  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  pager = diff-highlight | less
 
 [color]
   ui = auto
