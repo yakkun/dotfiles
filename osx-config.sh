@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ux
+set -uex
 
 ### Visible directories
 chflags nohidden ~/Library
