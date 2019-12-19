@@ -2,6 +2,11 @@
 
 set -uex
 
+if [ "$(uname)" != 'Darwin' ]; then
+  echo "Aborted: This script for macOS, your platform seems not."
+  exit 1
+fi
+
 ### Visible directories
 chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
