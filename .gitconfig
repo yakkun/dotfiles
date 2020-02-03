@@ -65,6 +65,3 @@
 
 [branch "master"]
   rebase = true
-
-[includeIf "gitdir:~/ghq/github.com/bebit/**"]
-  path = ~/.gitconfig-bebit

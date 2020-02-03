@@ -23,7 +23,6 @@ tmux: ## Setup tmux configuration
 .PHONY: git
 git: ## Setup Git configuration
 	ln -vsf ${PWD}/.gitconfig ${HOME}
-	ln -vsf ${PWD}/.gitconfig-bebit ${HOME}
 	mkdir -p ${HOME}/.config/git
 	ln -vsf ${PWD}/.config/git/ignore ${HOME}/.config/git/ignore
 
