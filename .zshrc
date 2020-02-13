@@ -83,6 +83,7 @@ zplug load
 export GOPATH=$HOME/go
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
 export PATH=$PATH:/usr/local/sbin:$HOME/.nodebrew/current/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/.rvm/bin
 export HOMEBREW_NO_AUTO_UPDATE="1"
 
 # Misc aliases
