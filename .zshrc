@@ -111,8 +111,6 @@ zle -N cd-fzy-ghqlist && bindkey '^G' cd-fzy-ghqlist
 type hub >/dev/null && eval "$(hub alias -s)"
 type direnv >/dev/null && eval "$(direnv hook zsh)"
 type rbenv >/dev/null && eval "$(rbenv init - zsh)"
-type pyenv >/dev/null && eval "$(pyenv init -)"
-type pyenv-virtualenv-init >/dev/null && eval "$(pyenv virtualenv-init -)"
 
 # Auto start tmux
 if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" ]]; then
