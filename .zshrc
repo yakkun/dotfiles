@@ -1,103 +1,101 @@
-# General config
-bindkey -e # emacs
-export LANGUAGE="ja_JP.UTF-8"
+# Init Envs
+export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export EDITOR=vim
-export CLICOLOR=1
 
-# General zsh config
-setopt correct           # コマンドのスペルチェック
-setopt auto_list         # 補完候補が複数ある時に、一覧表示
-setopt auto_menu         # 補完キー（Tab, Ctrl+I) を連打するだけで順に補完候補を自動で補完
-setopt no_list_types     # auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示しない
-setopt magic_equal_subst # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
-setopt auto_param_slash  # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
-setopt mark_dirs         # ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
-setopt auto_param_keys   # 自動補完される余分なカンマなどを適宜削除してスムーズに入力できるように
-setopt rc_expand_param   # {}をbash ライクに展開
-setopt list_packed       # 補完候補を詰めて表示
-setopt print_eight_bit   # 8 ビット目を通すようになり、日本語のファイル名を表示可能
-LISTMAX=0                # 補完は画面表示を超える時にだけ聞く
-
-# General zsh config (histories)
-setopt extended_history   # 履歴ファイルに時刻を記録
-setopt hist_no_store      # history コマンドをヒストリにいれない
-setopt hist_reduce_blanks # 履歴から冗長な空白を除く
-setopt hist_no_functions  # 関数定義をヒストリに入れない
+# Zsh options
+# ref: http://zsh.sourceforge.net/Doc/Release/Options.html
+#
+# Key bindings
+bindkey -e # Emacs mode
+# Changing Directories
+setopt auto_cd           # Perform the cd command to that directory if a command can't be executed
+setopt auto_pushd        # Make the cd command to push the old directory onto the directory stack
+setopt pushd_ignore_dups # Don’t push multiple copies of the same directory onto the directory stack
+# Completion
+setopt always_to_end     # The cursor is moved to the end of the word when a completion is performed
+unsetopt list_beep       # Don't beep on an ambiguous completion
+setopt list_packed       # Smaller the completion list
+LISTMAX=0                # Ask me with lots of completions list only-if over the window
+# Expansion and Globbing
+setopt magic_equal_subst # Performed filenames on commands arguments
+setopt mark_dirs         # Add a trailing '/' to all directory names
+setopt rc_expand_param   # Expand braces like bash ($xx=(a b c), ‘foo${xx}bar’ -> ‘fooabar foobbar foocbar’)
+# Input/Output
+setopt correct         # Try to correct the spelling of commands
+unsetopt flow_control  # Disable output flow control via start/stop chars (^S/^Q)
+setopt print_eight_bit # Print eight bit characters (Japanese) literally in completion lists
+# History
+[ -z "$HISTFILE" ] && HISTFILE=${HOME}/.zsh_history # Filename to save
+HISTSIZE=10000            # Lines saving on memory
+SAVEHIST=30000            # Lines saving on $HISTFILE
+setopt hist_find_no_dups  # Remove duplicated commands from history searches
+setopt hist_verify        # Confirm before exexuting commands from hisory
+setopt inc_append_history # Log commands a.s.a.p they are enteterd
+setopt extended_history   # With timestamp
+setopt hist_reduce_blanks # Remove superfluous blanks
+setopt hist_no_functions  # Remove function definitions
 
 # ===== zplug =====
 # Install and load
 if [[ ! -f ~/.zplug/init.zsh ]]; then
   printf "[WARN] zplug is needed by .zshrc but seems NOT installed, install now? [y/N]: "
   if read -q; then
-    echo
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    echo && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
   fi
 fi
 source ~/.zplug/init.zsh
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-# Theme
-zplug "mafredri/zsh-async"
+zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-# Vanilli.sh (lightweight start point of shell configuration)
-zplug "yous/vanilli.sh"
-# ehnacd
 zplug "b4b4r07/enhancd", use:init.sh
-export ENHANCD_FILTER=fzy:fzf:peco
-export ENHANCD_DISABLE_DOT=1
-#export ENHANCD_DISABLE_HYPHEN=1
-export ENHANCD_DISABLE_HOME=1
-# z.sh
 zplug "rupa/z", use:"*.sh"
-# Syntax highlighter
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# History substring search
 zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "aperezdc/zsh-fzy"
+if ! zplug check; then
+  printf "[zplug:NOTICE] some plugins are seems NOT installed, install now? [y/N]: "
+  if read -q; then
+    echo && zplug install
+  fi
+fi
+zplug load
+# Configure for plugins
+if zplug check "b4b4r07/enhancd"; then
+  export ENHANCD_FILTER=fzy:fzf:peco
+  export ENHANCD_DISABLE_DOT=1
+  #export ENHANCD_DISABLE_HYPHEN=1
+  export ENHANCD_DISABLE_HOME=1
+fi
 if zplug check "zsh-users/zsh-history-substring-search"; then
   bindkey -M emacs '^P' history-substring-search-up
   bindkey -M emacs '^N' history-substring-search-down
 fi
-# Suggestions like FISH shell
-zplug "zsh-users/zsh-autosuggestions"
-# Auto completions
-zplug "zsh-users/zsh-completions"
-# Use fzy for zsh
-zplug "aperezdc/zsh-fzy"
-bindkey '^R' fzy-history-widget
-# Load .env file automatically
-zplug "plugins/dotenv", from:oh-my-zsh
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "[zplug:NOTICE] some plugins are seems NOT installed, install now? [y/N]: "
-  if read -q; then
-    echo
-    zplug install
-  fi
+if zplug check "aperezdc/zsh-fzy"; then
+  bindkey '^R' fzy-history-widget
 fi
-# Load all
-zplug load
 # ===== /zplug =====
 
-# Misc config
-export GOPATH=$HOME/go
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
-export PATH=$PATH:/usr/local/sbin:$HOME/.nodebrew/current/bin:$GOPATH/bin
-export PATH=$PATH:$HOME/.rvm/bin
-export HOMEBREW_NO_AUTO_UPDATE="1"
+# Envs
+export LESS='-NR'
+type brew >/dev/null && export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
+type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
+type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
+type go >/dev/null && export GOPATH=$HOME/go && export PATH=$PATH:$GOPATH/bin
 
-# Misc aliases
+# Aliases
 alias ls='ls --color -F'
-alias la='ls -a'
 alias ll='ls -alG'
-alias vi='vim'
-alias diff='colordiff -u'
+type vim >/dev/null && alias vi='vim'
+type colordiff >/dev/null && alias diff='colordiff -u'
 alias grep='grep --color'
-alias less='less -NR'
-alias dc='docker-compose'
+type docker-compose >/dev/null && alias dc='docker-compose'
 
 # ===== Functions =====
-# Ctrl-g: Cd-to-ghq-repository
+# Change directory with ghq list (Ctrl-G)
 function cd-fzy-ghqlist() {
   local GHQ_ROOT=$(ghq root)
   local REPO=$(ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' | fzy)
@@ -106,26 +104,17 @@ function cd-fzy-ghqlist() {
   fi
   zle accept-line
 }
-zle -N cd-fzy-ghqlist
-bindkey '^G' cd-fzy-ghqlist
+zle -N cd-fzy-ghqlist && bindkey '^G' cd-fzy-ghqlist
+# ===== /Functions =====
 
-# command fcd (to cd current open folder on Finder)
-function fcd() {
-  cd "`osascript -l JavaScript -e \"decodeURIComponent(Application('Finder').windows[0].target().url().replace('file://', '')).replace(/\\"/g, '\\\"');\"`" && pwd
-}
-
-# hub
+# Init applications
 type hub >/dev/null && eval "$(hub alias -s)"
-# direnv
 type direnv >/dev/null && eval "$(direnv hook zsh)"
-# rbenv
 type rbenv >/dev/null && eval "$(rbenv init - zsh)"
-# pyenv
 type pyenv >/dev/null && eval "$(pyenv init -)"
-# pyenv-virtualenv
 type pyenv-virtualenv-init >/dev/null && eval "$(pyenv virtualenv-init -)"
-# jenv
-type jenv >/dev/null && eval "$(jenv init -)"
 
-# tmux
-[[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]] && tmux attach || tmux new
+# Auto start tmux
+if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" ]]; then
+  tmux attach >/dev/null 2>&1 || tmux new
+fi
