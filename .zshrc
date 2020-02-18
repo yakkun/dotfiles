@@ -81,7 +81,7 @@ fi
 
 # Envs
 export LESS='-NR'
-type brew >/dev/null && export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
+type brew >/dev/null && export PATH=/usr/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
 type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
 type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
 type go >/dev/null && export GOPATH=$HOME/go && export PATH=$PATH:$GOPATH/bin
