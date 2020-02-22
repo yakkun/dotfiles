@@ -64,3 +64,6 @@ sudo ln -sf /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr
 
 ### CotEditor on CLI
 sudo ln -sf /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/
+
+### Fix Ricty's backquote
+./scripts/fix-ricty-backquote.sh >/dev/null
