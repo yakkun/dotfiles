@@ -113,6 +113,6 @@ type direnv >/dev/null && eval "$(direnv hook zsh)"
 type rbenv >/dev/null && eval "$(rbenv init - zsh)"
 
 # Auto start tmux
-if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" ]]; then
+if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
   tmux attach >/dev/null 2>&1 || tmux new
 fi
