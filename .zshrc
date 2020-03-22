@@ -111,6 +111,10 @@ zle -N cd-fzy-ghqlist && bindkey '^G' cd-fzy-ghqlist
 type hub >/dev/null && eval "$(hub alias -s)"
 type direnv >/dev/null && eval "$(direnv hook zsh)"
 type rbenv >/dev/null && eval "$(rbenv init - zsh)"
+if [[ "$(uname)" == 'Darwin' ]] && type gcloud >/dev/null; then
+  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+fi
 
 # Auto start tmux
 if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
