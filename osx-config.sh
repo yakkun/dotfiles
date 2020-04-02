@@ -7,6 +7,9 @@ if [ "$(uname)" != 'Darwin' ]; then
   exit 1
 fi
 
+### Make sure closing all "System Preferences" panes
+osascript -e 'tell application "System Preferences" to quit'
+
 ### Visible directories
 chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
@@ -37,9 +40,20 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
-### Disable functions
-defaults write com.apple.dashboard mcx-disabled -bool true # Dashboard
-defaults write com.apple.dock mcx-expose-disabled -bool true # Mission Control
+### Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true # Disabled
+
+### Dock
+defaults write com.apple.dock tilesize -int 40
+defaults write com.apple.dock largesize -int 57
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock mru-spaces -bool false # Disable: Automatically rearrange Spaces
+defaults write com.apple.dock mcx-expose-disabled -bool true # Disable: Mission Control
+
+### Hot Corner
+defaults write com.apple.dock wvous-bl-corner -int 10 # bl=bottom+left, 10=Put display to sleep
+defaults write com.apple.dock wvous-bl-modifier -int 524288 # 524288=Option
 
 ### Finder
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true # Title bar shows full path
