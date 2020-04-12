@@ -25,6 +25,7 @@ git: ## Setup Git configuration
 	ln -vsf ${PWD}/.gitconfig ${HOME}
 	mkdir -p ${HOME}/.config/git
 	ln -vsf ${PWD}/.config/git/ignore ${HOME}/.config/git/ignore
+	ln -vsf ${PWD}/.tigrc ${HOME}
 
 .PHONY: karabiner
 karabiner: ## Setup Karabiner configuration

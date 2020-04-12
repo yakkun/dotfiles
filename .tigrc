@@ -1,0 +1,21 @@
+# Show commit id on main view left side
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+# Show diffs about 4 lines
+set diff-context = 4
+
+# Copy with 'y' (Only for Mac)
+bind generic y @sh -c "echo %(commit) | pbcopy"
+
+# Wide horizental view height
+set split-view-height = 80%
+
+# Use utf-8 with lines
+set line-graphics = utf-8
+
+# Use diff-highlight
+set diff-highlight = true
+
+# Colors
+color  diff-header       default magenta
+color  diff-chunk        black   white
