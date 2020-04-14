@@ -3,6 +3,7 @@ export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export EDITOR=vim
+export GPG_TTY=$(tty)
 
 # Zsh options
 # ref: http://zsh.sourceforge.net/Doc/Release/Options.html
