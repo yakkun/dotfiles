@@ -116,5 +116,6 @@ mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Skitch", id: 425955336
 mas "The Unarchiver", id: 425424353
+mas "WiFi Explorer Lite", id: 1408727408
 mas "WinArchiver Lite", id: 414855915
 mas "Xcode", id: 497799835
