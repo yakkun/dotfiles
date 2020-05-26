@@ -8,7 +8,6 @@
   ci = commit
   st = status --short --branch
   br = branch
-  chp = cherry-pick
   branches = branch -a
   tags = tag
   log = log --stat
@@ -17,7 +16,6 @@
   remotes = remote -v
   stashes = stash list
   aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /
-  barusu = reset --hard
 
 [core]
   editor = vim
