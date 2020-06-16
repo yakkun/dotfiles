@@ -5,7 +5,7 @@ set main-view = id date author:email-user commit-title:graph=yes,refs=yes
 set diff-context = 4
 
 # Copy with 'y' (Only for Mac)
-bind generic y @sh -c "echo %(commit) | pbcopy"
+bind generic y @sh -c "printf '%(commit)' | pbcopy"
 
 # Wide horizental view height
 set split-view-height = 80%
