@@ -105,6 +105,7 @@ cask "visual-studio-code-insiders"
 cask "witch"
 cask "zoomus"
 mas "CotEditor", id: 1024640650
+mas "Developer", id: 640199958
 mas "GIPHY CAPTURE", id: 668208984
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
