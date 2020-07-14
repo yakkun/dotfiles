@@ -43,6 +43,11 @@
 [push]
   default = current
 
+[fetch]
+  prune = true
+  pruneTags = true
+  output = compact
+
 [pull]
   ff = only
 
