@@ -383,20 +383,20 @@ alt_send_esc: true
 #   - AppKeypad
 key_bindings:
   # (Windows/Linux only)
-  #- { key: V,        mods: Control|Shift, action: Paste            }
-  #- { key: C,        mods: Control|Shift, action: Copy             }
-  #- { key: Insert,   mods: Shift,         action: PasteSelection   }
-  #- { key: Key0,     mods: Control,       action: ResetFontSize    }
-  #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  #- { key: Add,      mods: Control,       action: IncreaseFontSize }
-  #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  #- { key: V,         mods: Control|Shift, action: Paste            }
+  #- { key: C,         mods: Control|Shift, action: Copy             }
+  #- { key: Insert,    mods: Shift,         action: PasteSelection   }
+  #- { key: Key0,      mods: Control,       action: ResetFontSize    }
+  #- { key: Equals,    mods: Control,       action: IncreaseFontSize }
+  #- { key: NumpadAdd, mods: Control,       action: IncreaseFontSize }
+  #- { key: Subtract,  mods: Control,       action: DecreaseFontSize }
+  #- { key: Minus,     mods: Control,       action: DecreaseFontSize }
 
   # (macOS only)
-  - { key: Key0,   mods: Command, action: ResetFontSize    }
-  - { key: Equals, mods: Command, action: IncreaseFontSize }
-  - { key: Add,    mods: Command, action: IncreaseFontSize }
-  - { key: Minus,  mods: Command, action: DecreaseFontSize }
+  - { key: Key0,       mods: Command, action: ResetFontSize    }
+  - { key: Equals,     mods: Command, action: IncreaseFontSize }
+  - { key: NumpadAdd,  mods: Command, action: IncreaseFontSize }
+  - { key: Minus,      mods: Command, action: DecreaseFontSize }
   #- { key: K,      mods: Command, action: ClearHistory     }
   #- { key: K,      mods: Command, chars: "\x0c"            }
   #- { key: V,      mods: Command, action: Paste            }
