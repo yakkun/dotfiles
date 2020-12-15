@@ -105,7 +105,7 @@ cask "toggl"
 cask "tor-browser"
 cask "visual-studio-code-insiders"
 cask "witch"
-cask "zoomus"
+cask "zoom"
 mas "CotEditor", id: 1024640650
 mas "Developer", id: 640199958
 mas "GIPHY CAPTURE", id: 668208984
