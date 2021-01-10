@@ -10,6 +10,9 @@ fi
 ### Make sure closing all "System Preferences" panes
 osascript -e 'tell application "System Preferences" to quit'
 
+### Install Xcode Command Line Tools
+xcode-select --install
+
 ### Visible directories
 chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
