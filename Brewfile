@@ -56,7 +56,7 @@ brew "libnfc"
 brew "mas"
 brew "maven"
 brew "minikube"
-brew "mysql@5.7", restart_service: true, link: true
+brew "mysql"
 brew "nmap"
 brew "node"
 brew "peco"
