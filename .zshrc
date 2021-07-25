@@ -93,7 +93,7 @@ alias ll='ls -alG'
 type vim >/dev/null && alias vi='vim'
 type colordiff >/dev/null && alias diff='colordiff -u'
 alias grep='grep --color'
-type docker >/dev/null && alias dc='docker compose'
+type docker-compose >/dev/null && alias dc='docker-compose'
 
 # ===== Functions =====
 # Change directory with ghq list (Ctrl-G)
