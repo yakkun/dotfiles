@@ -113,7 +113,6 @@ cask "visual-studio-code-insiders"
 cask "witch"
 cask "zoom"
 mas "com.adriangranados.wifiexplorerlite", id: 1408727408
-mas "com.pixelmatorteam.pixelmator.x", id: 1289583905
 mas "CotEditor", id: 1024640650
 mas "Developer", id: 640199958
 mas "GIPHY CAPTURE", id: 668208984
@@ -126,6 +125,7 @@ mas "Messenger", id: 1480068668
 mas "MindNode", id: 1289197285
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
 mas "Skitch", id: 425955336
 mas "The Unarchiver", id: 425424353
 mas "WinArchiver Lite", id: 414855915
