@@ -115,6 +115,7 @@ cask "tor-browser"
 cask "visual-studio-code-insiders"
 cask "witch"
 cask "zoom"
+mas "Citrix SSO", id: 1338991513
 mas "com.adriangranados.wifiexplorerlite", id: 1408727408
 mas "CotEditor", id: 1024640650
 mas "Developer", id: 640199958
