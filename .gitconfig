@@ -58,6 +58,9 @@
   verbose = true
   gpgsign = true
 
+[merge]
+  conflictStyle = zdiff3
+
 [secrets]
   providers = git secrets --aws-provider
   patterns = [A-Z0-9]{20}
