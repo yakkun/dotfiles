@@ -75,12 +75,3 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 defaults write com.apple.Safari ShowStatusBar -bool true
-
-### diff-highlight on PATH
-sudo ln -sf /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/
-
-### CotEditor on CLI
-sudo ln -sf /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/
-
-### Fix Ricty's backquote
-./scripts/fix-ricty-backquote.sh >/dev/null

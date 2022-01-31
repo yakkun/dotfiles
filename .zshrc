@@ -1,3 +1,10 @@
+# Init Homebrew
+if [ "$(uname -m)" = "arm64" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # Init Envs
 export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
@@ -82,7 +89,7 @@ fi
 
 # Envs
 export LESS='-NR'
-type brew >/dev/null && export PATH=/usr/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
+type brew >/dev/null && export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
 type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
 type go >/dev/null && export GOPATH=$HOME/go && export PATH=$PATH:$GOPATH/bin
