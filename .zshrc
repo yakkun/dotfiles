@@ -89,6 +89,7 @@ fi
 
 # Envs
 export LESS='-NR'
+export PATH=$HOME/bin:$PATH
 type brew >/dev/null && export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
 type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
