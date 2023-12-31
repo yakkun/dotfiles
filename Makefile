@@ -7,7 +7,7 @@ help:
 .PHONY: alacritty
 alacritty: ## Setup Alacritty configuration
 	mkdir -p ${HOME}/.config/alacritty
-	ln -vsf ${PWD}/.config/alacritty/alacritty.yml ${HOME}/.config/alacritty/alacritty.yml
+	ln -vsf ${PWD}/.config/alacritty/alacritty.toml ${HOME}/.config/alacritty/alacritty.toml
 
 .PHONY: tmux
 tmux: ## Setup tmux configuration
