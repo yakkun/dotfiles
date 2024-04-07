@@ -15,6 +15,8 @@ export GPG_TTY=$(tty)
 # Zsh options
 # ref: http://zsh.sourceforge.net/Doc/Release/Options.html
 #
+# Uniq PATHs
+typeset -U path PATH
 # Key bindings
 bindkey -e # Emacs mode
 # Changing Directories
