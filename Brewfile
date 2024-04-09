@@ -87,6 +87,7 @@ mas "MindNode", id: 1289197285
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Skitch", id: 425955336
+mas "Solves", id: 1394359548
 mas "The Unarchiver", id: 425424353
 mas "WinArchiver Lite", id: 414855915
 mas "Xcode", id: 497799835
