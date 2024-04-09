@@ -79,7 +79,6 @@ cask "vmware-horizon-client"
 cask "webex"
 cask "witch"
 cask "zoom"
-cask "zsa-wally"
 mas "Citrix Secure Access", id: 1338991513
 mas "com.adriangranados.wifiexplorerlite", id: 1408727408
 mas "Keynote", id: 409183694
