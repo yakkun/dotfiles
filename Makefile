@@ -47,3 +47,7 @@ diff-highlight: ## Setup diff-highlight
 .PHONY: cot
 cot: ## Setup cot (CotEditor)
 	sudo ln -sf /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/
+
+.PHONY: flutter
+flutter: ## Setup Flutter dev env
+	fvm install stable

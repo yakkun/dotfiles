@@ -104,6 +104,10 @@ type vim >/dev/null && alias vi='vim'
 type colordiff >/dev/null && alias diff='colordiff -u'
 alias grep='grep --color'
 type docker >/dev/null && alias dc='docker compose'
+alias flutter='fvm flutter'
+
+# Completion for Dart
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 
 # ===== Functions =====
 # Change directory with ghq list (Ctrl-G)
