@@ -61,8 +61,10 @@ cask "adobe-creative-cloud"
 cask "alacritty"
 cask "alfred"
 cask "android-studio"
+cask "cleanshot"
 cask "cmd-eikana"
 cask "coteditor"
+cask "cursor"
 cask "dash"
 cask "discord"
 cask "docker"
@@ -79,23 +81,21 @@ cask "notion"
 cask "onyx"
 cask "orbstack"
 cask "proxyman"
+cask "raycast"
 cask "sequel-ace"
-cask "sketch-beta"
+cask "sequel-pro"
 cask "slack-beta"
 cask "visual-studio-code-insiders"
-cask "vmware-horizon-client"
-cask "webex"
 cask "witch"
 cask "zoom"
-mas "com.adriangranados.wifiexplorerlite", id: 1408727408
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "MindNode", id: 1289197285
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Skitch", id: 425955336
 mas "Solves", id: 1394359548
 mas "The Unarchiver", id: 425424353
+mas "WiFi Explorer Lite", id: 1408727408
 mas "WinArchiver Lite", id: 414855915
 mas "Xcode", id: 497799835
