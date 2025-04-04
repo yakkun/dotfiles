@@ -1,7 +1,5 @@
 tap "heroku/brew"
 tap "homebrew/autoupdate"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "leoafarias/fvm"
 brew "anyenv"
 brew "jpeg-turbo"
