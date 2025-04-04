@@ -16,6 +16,7 @@ brew "diffutils"
 brew "direnv"
 brew "emojify"
 brew "eza"
+brew "icu4c@76"
 brew "ffmpeg"
 brew "findutils"
 brew "fzf"
@@ -44,7 +45,8 @@ brew "node"
 brew "peco"
 brew "php"
 brew "pinentry-mac"
-brew "switchaudio-osx"
+brew "shellcheck"
+brew "swiftformat"
 brew "telnet"
 brew "tig"
 brew "tmux"
@@ -65,8 +67,6 @@ cask "cleanshot"
 cask "cmd-eikana"
 cask "coteditor"
 cask "cursor"
-cask "dash"
-cask "discord"
 cask "docker"
 cask "flutter"
 cask "font-ricty-diminished"
@@ -81,21 +81,10 @@ cask "notion"
 cask "onyx"
 cask "orbstack"
 cask "proxyman"
+cask "qgis"
 cask "raycast"
 cask "sequel-ace"
-cask "sequel-pro"
 cask "slack-beta"
+cask "tableplus"
 cask "visual-studio-code-insiders"
-cask "witch"
 cask "zoom"
-mas "Keynote", id: 409183694
-mas "Kindle", id: 302584613
-mas "LINE", id: 539883307
-mas "MindNode", id: 1289197285
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Solves", id: 1394359548
-mas "The Unarchiver", id: 425424353
-mas "WiFi Explorer Lite", id: 1408727408
-mas "WinArchiver Lite", id: 414855915
-mas "Xcode", id: 497799835
