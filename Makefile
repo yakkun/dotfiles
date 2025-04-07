@@ -11,15 +11,15 @@ alacritty: ## Setup Alacritty configuration
 
 .PHONY: tmux
 tmux: ## Setup tmux configuration
-	ln -vsf ${PWD}/.tmux.conf ${HOME}
+	ln -vsf ${PWD}/.tmux.conf ${HOME}/
 
 .PHONY: git
 git: ## Setup Git configuration
-	ln -vsf ${PWD}/.gitconfig ${HOME}
+	ln -vsf ${PWD}/.gitconfig ${HOME}/
 	ln -vsf ${PWD}/.gitconfig-yamareco ${HOME}/
 	mkdir -p ${HOME}/.config/git
 	ln -vsf ${PWD}/.config/git/ignore ${HOME}/.config/git/ignore
-	ln -vsf ${PWD}/.tigrc ${HOME}
+	ln -vsf ${PWD}/.tigrc ${HOME}/
 
 .PHONY: ssh
 ssh: ## Setup ssh configuration
@@ -28,16 +28,16 @@ ssh: ## Setup ssh configuration
 
 .PHONY: vim
 vim: ## Setup Vim configuration
-	ln -vsf ${PWD}/.vimrc ${HOME}
+	ln -vsf ${PWD}/.vimrc ${HOME}/
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 .PHONY: zsh
 zsh: ## Setup Zsh configuration
-	ln -vsf ${PWD}/.zshrc ${HOME}
+	ln -vsf ${PWD}/.zshrc ${HOME}/
 
 .PHONY: homebrew
 homebrew: ## Setup Homebrew configuration
-	ln -vsf ${PWD}/Brewfile ${HOME}
+	ln -vsf ${PWD}/Brewfile ${HOME}/
 	brew bundle
 	brew autoupdate start --cleanup
 
