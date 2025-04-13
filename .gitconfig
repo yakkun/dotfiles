@@ -16,6 +16,7 @@
   remotes = remote -v
   stashes = stash list
   aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /
+  sync = !"git fetch origin --recurse-submodules=no --quiet --prune && git merge --ff-only"
 
 [core]
   editor = vim

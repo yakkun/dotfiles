@@ -123,7 +123,6 @@ zle -N cd-fzy-ghqlist && bindkey '^G' cd-fzy-ghqlist
 # ===== /Functions =====
 
 # Init applications
-type hub >/dev/null && eval "$(hub alias -s)"
 type direnv >/dev/null && eval "$(direnv hook zsh)"
 type anyenv >/dev/null && eval "$(anyenv init -)"
 if [[ "$(uname)" == 'Darwin' ]] && type gcloud >/dev/null; then

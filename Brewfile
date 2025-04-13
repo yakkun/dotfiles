@@ -32,7 +32,6 @@ brew "gnupg"
 brew "go"
 brew "grep"
 brew "gzip"
-brew "hub"
 brew "liblqr"
 brew "libomp", link: true
 brew "imagemagick"
