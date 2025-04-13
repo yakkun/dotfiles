@@ -83,3 +83,13 @@ cask "slack@beta"
 cask "tableplus"
 cask "visual-studio-code@insiders"
 cask "zoom"
+mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
+mas "LINE", id: 539883307
+mas "MindNode", id: 1289197285
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Solves", id: 1394359548
+mas "The Unarchiver", id: 425424353
+mas "WiFi Explorer Lite", id: 1408727408
+mas "Xcode", id: 497799835
