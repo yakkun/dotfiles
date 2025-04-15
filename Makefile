@@ -45,10 +45,6 @@ homebrew: ## Setup Homebrew configuration
 diff-highlight: ## Setup diff-highlight
 	ln -sf `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight `brew --prefix`/bin/
 
-.PHONY: cot
-cot: ## Setup cot (CotEditor)
-	sudo ln -sf /Applications/CotEditor.app/Contents/SharedSupport/bin/cot /usr/local/bin/
-
 .PHONY: flutter
 flutter: ## Setup Flutter dev env
 	fvm install stable
