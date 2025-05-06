@@ -4,7 +4,6 @@
   signingkey = F08828855CF85118
 
 [alias]
-  co = "!f() { args=$@; if [ -z \"$args\" ]; then branch=$(git branch --all | grep -v HEAD | fzf --preview 'echo {} | cut -c 3- | xargs git log --color=always' | cut -c 3-); git checkout $(echo $branch | sed 's#remotes/[^/]*/##'); else git checkout $args; fi }; f"
   ci = commit
   st = status --short --branch
   br = branch
