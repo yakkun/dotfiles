@@ -41,17 +41,13 @@ style = "Block"
 unfocused_hollow = true
 
 [font]
-size = 14.0
-
-[font.glyph_offset]
-x = 0
-y = 0
+size = 13.0
 
 [font.normal]
-family = "Ricty Diminished"
+family = "PlemolJP Console"
 
 [font.offset]
-x = 0
+x = 1
 y = 0
 
 [[keyboard.bindings]]
