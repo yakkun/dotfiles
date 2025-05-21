@@ -16,6 +16,8 @@
   stashes = stash list
   aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /
   sync = !"git fetch origin --recurse-submodules=no --quiet --prune && git merge --ff-only"
+  diffc = diff --cached
+  pushf = push --force-with-lease
 
 [core]
   editor = vim
