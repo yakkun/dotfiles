@@ -65,7 +65,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
-zplug "aperezdc/zsh-fzy"
 if ! zplug check; then
   printf "[zplug:NOTICE] some plugins are seems NOT installed, install now? [y/N]: "
   if read -q; then
@@ -75,7 +74,7 @@ fi
 zplug load
 # Configure for plugins
 if zplug check "b4b4r07/enhancd"; then
-  export ENHANCD_FILTER=fzy:fzf:peco
+  export ENHANCD_FILTER=fzf:fzy:peco
   export ENHANCD_DISABLE_DOT=1
   #export ENHANCD_DISABLE_HYPHEN=1
   export ENHANCD_DISABLE_HOME=1
@@ -84,10 +83,11 @@ if zplug check "zsh-users/zsh-history-substring-search"; then
   bindkey -M emacs '^P' history-substring-search-up
   bindkey -M emacs '^N' history-substring-search-down
 fi
-if zplug check "aperezdc/zsh-fzy"; then
-  bindkey '^R' fzy-history-widget
-fi
 # ===== /zplug =====
+
+# fzf
+type fzf >/dev/null && source <(fzf --zsh)
+export FZF_DEFAULT_OPTS='--height 20% --tmux bottom,20% --layout reverse --border top'
 
 # Envs
 export LESS='-NR'
@@ -111,15 +111,15 @@ alias flutter='fvm flutter'
 
 # ===== Functions =====
 # Change directory with ghq list (Ctrl-G)
-function cd-fzy-ghqlist() {
+function cd-fzf-ghqlist() {
   local GHQ_ROOT=$(ghq root)
-  local REPO=$(ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' | fzy)
+  local REPO=$(ghq list -p | sed -e 's;'${GHQ_ROOT}/';;g' | fzf)
   if [ -n "${REPO}" ]; then
     BUFFER="cd ${GHQ_ROOT}/${REPO}"
   fi
   zle accept-line
 }
-zle -N cd-fzy-ghqlist && bindkey '^G' cd-fzy-ghqlist
+zle -N cd-fzf-ghqlist && bindkey '^G' cd-fzf-ghqlist
 # ===== /Functions =====
 
 # Init applications
