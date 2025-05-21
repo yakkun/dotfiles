@@ -89,8 +89,20 @@ fi
 type fzf >/dev/null && source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 20% --tmux bottom,20% --layout reverse --border top'
 
+# bat
+if type bat >/dev/null; then
+  alias bat='nocorrect bat'
+  alias cat=bat
+  export FZF_CTRL_T_OPTS="
+    --walker-skip .git,node_modules,target
+    --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT="-c"
+fi
+
 # Envs
-export LESS='-NR'
+export LESS='-R'
 export PATH=$HOME/bin:$PATH
 type brew >/dev/null && export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
