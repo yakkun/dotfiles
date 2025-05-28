@@ -93,5 +93,5 @@
 [init]
   defaultBranch = main
 
-[includeIf "gitdir:~/ghq/bitbucket.org/matoyan/**"]
+[includeIf "gitdir:~/ghq/github.com/yamareco/**"]
   path = ~/.gitconfig-yamareco
