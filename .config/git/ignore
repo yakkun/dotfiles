@@ -13,3 +13,7 @@ desktop.ini
 *.sublime-project
 *.sublime-workspace
 .vscode/
+
+# Claude Code
+**/.claude/settings.local.json
+CLAUDE.local.md
