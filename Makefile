@@ -48,3 +48,9 @@ diff-highlight: ## Setup diff-highlight
 .PHONY: flutter
 flutter: ## Setup Flutter dev env
 	fvm install stable
+
+.PHONY: claude-code
+claude-code: ## Setup Claude code
+	mkdir -p ${HOME}/.claude
+	ln -vsf ${PWD}/claude/CLAUDE.md ${HOME}/.claude/
+	ln -vsf ${PWD}/claude/settings.json ${HOME}/.claude/

@@ -1,0 +1,63 @@
+{
+  "permissions": {
+    "allow": [
+      "List(*)",
+      // Bash general
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(chmod:*)",
+      "Bash(chown:*)",
+      "Bash(touch:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
+      "Bash(pwd)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(which:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(cut:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(wc:*)",
+      "Bash(cmp:*)",
+      "Bash(ln:*)",
+      "Bash(diff:*)",
+      "Bash(date:*)",
+      "Bash(make:*)",
+      "Bash(du:*)",
+      "Bash(df:*)",
+      "Bash(history:*)",
+      "Bash(env:*)",
+      "Bash(export:*)",
+      "Bash(source:*)",
+      "Bash(file:*)",
+      // Git
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      // Fetch from internet
+      "Fetch(https://*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      // Package managers
+      "Bash(brew:*)",
+      "Bash(npm:*)",
+      "Bash(yarn:*)",
+      "Bash(uv:*)",
+      // Container
+      "Bash(docker:*)",
+      "Bash(kubectl:*)",
+      // macOS
+      "Bash(open:*)",
+      "Bash(pbcopy:*)",
+      "Bash(pbpaste:*)",
+      "Bash(xcodebuild:*)"
+    ],
+    "deny": []
+  }
+}
