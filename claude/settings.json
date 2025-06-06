@@ -2,7 +2,6 @@
   "permissions": {
     "allow": [
       "List(*)",
-      // Bash general
       "Bash(mkdir:*)",
       "Bash(mv:*)",
       "Bash(rm:*)",
@@ -37,27 +36,23 @@
       "Bash(export:*)",
       "Bash(source:*)",
       "Bash(file:*)",
-      // Git
       "Bash(git:*)",
       "Bash(gh:*)",
-      // Fetch from internet
       "Fetch(https://*)",
       "Bash(curl:*)",
       "Bash(wget:*)",
-      // Package managers
       "Bash(brew:*)",
       "Bash(npm:*)",
       "Bash(yarn:*)",
       "Bash(uv:*)",
-      // Container
       "Bash(docker:*)",
       "Bash(kubectl:*)",
-      // macOS
       "Bash(open:*)",
       "Bash(pbcopy:*)",
       "Bash(pbpaste:*)",
       "Bash(xcodebuild:*)"
     ],
-    "deny": []
+    "deny": [],
+    "preferredNotifChannel": "terminal_bell"
   }
 }
