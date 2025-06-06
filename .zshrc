@@ -117,6 +117,7 @@ type colordiff >/dev/null && alias diff='colordiff -u'
 alias grep='grep --color'
 type docker >/dev/null && alias dc='docker compose'
 alias flutter='fvm flutter'
+alias claude="${HOME}/.claude/local/claude"
 
 # Completion for Dart
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
