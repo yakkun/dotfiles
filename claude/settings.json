@@ -15,6 +15,7 @@
       "Bash(pwd)",
       "Bash(find:*)",
       "Bash(grep:*)",
+      "Bash(rg:*)",
       "Bash(head:*)",
       "Bash(tail:*)",
       "Bash(which:*)",
