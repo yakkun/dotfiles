@@ -53,7 +53,30 @@
       "Bash(pbpaste:*)",
       "Bash(xcodebuild:*)"
     ],
-    "deny": [],
-    "preferredNotifChannel": "terminal_bell"
+    "deny": []
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Require your confirmation\" with title \"Claude Code is waiting\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"All tasks completed.\" with title \"Claude Code is done for you\" sound name \"Hero\"'"
+          }
+        ]
+      }
+    ]
   }
 }
