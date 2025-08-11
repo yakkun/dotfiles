@@ -54,3 +54,4 @@ claude-code: ## Setup Claude code
 	mkdir -p ${HOME}/.claude
 	ln -vsf ${PWD}/claude/CLAUDE.md ${HOME}/.claude/
 	ln -vsf ${PWD}/claude/settings.json ${HOME}/.claude/
+	ln -vsf ${PWD}/claude/statusline.sh ${HOME}/.claude/

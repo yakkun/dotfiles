@@ -82,6 +82,6 @@
   "model": "opus",
   "statusLine": {
     "type": "command",
-    "command": "input=$(cat); currentDir=$(echo \"$input\" | jq -r '.workspace.current_dir // .cwd // \".\"'); dirName=$(basename \"$currentDir\"); model=$(echo \"$input\" | jq -r '.model.display_name // .model.id // \"claude\"'); modelShort=$(echo \"$model\" | sed -E 's/.*(sonnet|haiku|opus).*/\\1/I; t; s/.*/claude/'); printf \"\\033[36m%s\\033[0m \\033[35m%s\\033[0m\" \"$dirName\" \"$modelShort\""
+    "command": "~/.claude/statusline.sh"
   }
 }
