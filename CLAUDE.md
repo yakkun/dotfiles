@@ -25,7 +25,7 @@ make zsh            # Setup Zsh configuration
 make homebrew       # Setup Homebrew and install all packages from Brewfile
 make diff-highlight # Setup diff-highlight for Git
 make flutter        # Setup Flutter development environment with fvm
-make claude-code    # Setup Claude Code configuration (CLAUDE.md and settings.json)
+make claude-code    # Setup Claude Code configuration (CLAUDE.md, settings.json, and statusline.sh)
 ```
 
 ### macOS System Configuration
@@ -37,9 +37,14 @@ make claude-code    # Setup Claude Code configuration (CLAUDE.md and settings.js
 
 ### Directory Structure
 - **Root dotfiles**: `.gitconfig`, `.tmux.conf`, `.vimrc`, `.zshrc`, `.tigrc` - symlinked to home directory
-- **`.config/`**: XDG config directory structure for applications like Alacritty
+- **`.config/`**: XDG config directory structure
+  - **`alacritty/`**: Alacritty terminal emulator configuration
+  - **`git/`**: Git global ignore file
 - **`.ssh/`**: SSH configuration files and config.d directory
-- **`claude/`**: Claude Code specific configurations (CLAUDE.md for conversation rules, settings.json)
+- **`claude/`**: Claude Code specific configurations
+  - **`CLAUDE.md`**: Conversation rules and coding guidelines
+  - **`settings.json`**: Claude Code settings
+  - **`statusline.sh`**: Custom status line script for Claude Code
 - **`scripts/`**: Shell scripts for system configuration
 - **`Brewfile`**: Homebrew bundle file defining all packages to install
 
