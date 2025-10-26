@@ -133,6 +133,11 @@ function cd-fzf-ghqlist() {
   zle accept-line
 }
 zle -N cd-fzf-ghqlist && bindkey '^G' cd-fzf-ghqlist
+
+# Change directory to current open in Finder
+cdf() {
+  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
+}
 # ===== /Functions =====
 
 # Init applications
