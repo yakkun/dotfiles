@@ -4,7 +4,6 @@
   signingkey = F08828855CF85118
 
 [alias]
-  ci = commit
   st = status --short --branch
   br = branch
   branches = branch -a
