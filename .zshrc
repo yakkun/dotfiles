@@ -74,10 +74,8 @@ fi
 zplug load
 # Configure for plugins
 if zplug check "b4b4r07/enhancd"; then
-  export ENHANCD_FILTER=fzf:fzy:peco
-  export ENHANCD_DISABLE_DOT=1
-  #export ENHANCD_DISABLE_HYPHEN=1
-  export ENHANCD_DISABLE_HOME=1
+  export ENHANCD_FILTER="fzf --height 40% --preview='eza --tree --group-directories-first --level 1 {}'"
+  export ENHANCD_ENABLE_DOUBLE_DOT=false
 fi
 if zplug check "zsh-users/zsh-history-substring-search"; then
   bindkey -M emacs '^P' history-substring-search-up
