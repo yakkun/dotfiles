@@ -108,8 +108,9 @@ type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
 type go >/dev/null && export GOPATH=$HOME/go && export PATH=$PATH:$GOPATH/bin
 
 # Aliases
-alias ls='ls --color -F'
-alias ll='ls -alG'
+alias ls='eza'
+alias ll='eza -l -a --git'
+alias tree='eza -T --group-directories-first --level 2'
 type vim >/dev/null && alias vi='vim'
 type colordiff >/dev/null && alias diff='colordiff -u'
 alias grep='grep --color'
