@@ -3,7 +3,6 @@
 set -euo pipefail
 
 input=$(cat)
-datetime=`date '+%m/%d %H:%M:%S'`
 
 MODEL_DISPLAY=$(echo "$input" | jq -r '.model.display_name')
 CURRENT_DIR=$(echo "$input" | jq -r '.workspace.current_dir')
@@ -17,4 +16,4 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
     fi
 fi
 
-echo "${CURRENT_DIR##*/}$GIT_BRANCH $CCUSAGE | $datetime"
+echo "${CURRENT_DIR##*/}$GIT_BRANCH $CCUSAGE"
