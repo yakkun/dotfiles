@@ -13,10 +13,12 @@
   delete-merged-branches = !git --no-pager branch --merged | grep -vE '^\\*| master$| trunk$| main$| release$| develop$' | xargs git branch -d
   remotes = remote -v
   stashes = stash list
-  aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /
-  sync = !"git fetch origin --recurse-submodules=no --quiet --prune && git merge --ff-only"
+  aliases = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /"
+  sync = "!git fetch origin --recurse-submodules=no --quiet --prune && git merge --ff-only"
   diffc = diff --cached
   pushf = push --force-with-lease
+  w = worktree
+  worktrees = worktree list
 
 [core]
   editor = vim
