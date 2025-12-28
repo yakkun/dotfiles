@@ -101,7 +101,7 @@ fi
 
 # Envs
 export LESS='-R'
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 type brew >/dev/null && export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
 type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
@@ -116,7 +116,6 @@ type colordiff >/dev/null && alias diff='colordiff -u'
 alias grep='grep --color'
 type docker >/dev/null && alias dc='docker compose'
 alias flutter='fvm flutter'
-alias claude="${HOME}/.local/bin/claude"
 
 # Completion for Dart
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
