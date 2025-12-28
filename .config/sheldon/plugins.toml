@@ -1,0 +1,53 @@
+# Sheldon plugins configuration
+# https://sheldon.cli.rs/
+
+shell = "zsh"
+
+# Deferred loading template (for performance)
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+# ===== Plugins =====
+
+# zsh-defer for deferred loading
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+# Completions (must load before compinit)
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+# Initialize completions (must be before enhancd and after zsh-completions)
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'
+
+# zsh-async (required by pure theme)
+[plugins.zsh-async]
+github = "mafredri/zsh-async"
+
+# Pure theme
+[plugins.pure]
+github = "sindresorhus/pure"
+
+# Enhanced cd with fuzzy matching
+[plugins.enhancd]
+github = "b4b4r07/enhancd"
+
+# Directory jump (z)
+[plugins.z]
+github = "rupa/z"
+
+# Auto suggestions
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+# Syntax highlighting (should be loaded near last)
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+# History substring search (should be loaded after syntax highlighting)
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]

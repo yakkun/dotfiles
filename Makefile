@@ -34,6 +34,8 @@ vim: ## Setup Vim configuration
 .PHONY: zsh
 zsh: ## Setup Zsh configuration
 	ln -vsf ${PWD}/.zshrc ${HOME}/
+	mkdir -p ${HOME}/.config/sheldon
+	ln -vsf ${PWD}/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/
 
 .PHONY: homebrew
 homebrew: ## Setup Homebrew configuration

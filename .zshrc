@@ -47,41 +47,20 @@ setopt extended_history   # With timestamp
 setopt hist_reduce_blanks # Remove superfluous blanks
 setopt hist_no_functions  # Remove function definitions
 
-# ===== zplug =====
-# Install and load
-if [[ ! -f ~/.zplug/init.zsh ]]; then
-  printf "[WARN] zplug is needed by .zshrc but seems NOT installed, install now? [y/N]: "
-  if read -q; then
-    echo && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-  fi
+# ===== sheldon =====
+# Load plugins via sheldon (https://sheldon.cli.rs/)
+if type sheldon >/dev/null; then
+  eval "$(sheldon source)"
 fi
-source ~/.zplug/init.zsh
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "rupa/z", use:"*.sh"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-if ! zplug check; then
-  printf "[zplug:NOTICE] some plugins are seems NOT installed, install now? [y/N]: "
-  if read -q; then
-    echo && zplug install
-  fi
-fi
-zplug load
+
 # Configure for plugins
-if zplug check "b4b4r07/enhancd"; then
-  export ENHANCD_FILTER="fzf --height 40% --preview='eza --tree --group-directories-first --level 1 {}'"
-  export ENHANCD_ENABLE_DOUBLE_DOT=false
-fi
-if zplug check "zsh-users/zsh-history-substring-search"; then
-  bindkey -M emacs '^P' history-substring-search-up
-  bindkey -M emacs '^N' history-substring-search-down
-fi
-# ===== /zplug =====
+# enhancd
+export ENHANCD_FILTER="fzf --height 40% --preview='eza --tree --group-directories-first --level 1 {}'"
+export ENHANCD_ENABLE_DOUBLE_DOT=false
+# history-substring-search keybindings
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+# ===== /sheldon =====
 
 # fzf
 type fzf >/dev/null && source <(fzf --zsh)
