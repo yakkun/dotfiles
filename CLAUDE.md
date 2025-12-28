@@ -4,71 +4,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository for macOS development environment setup. It uses GNU Make for orchestration and Homebrew for package management.
+Personal dotfiles repository for macOS development environment. Uses GNU Make for orchestration and Homebrew for package management.
 
-## Key Commands
+## Commands
 
-### Initial Setup
 ```bash
-make         # Run all setup tasks (creates symlinks for all configurations)
-make help    # Display available make targets
-```
-
-### Individual Configuration Setup
-```bash
-make alacritty      # Setup Alacritty terminal configuration
-make tmux           # Setup tmux configuration
-make git            # Setup Git configuration (includes gitconfig, tigrc)
-make ssh            # Setup SSH configuration
-make vim            # Setup Vim configuration (includes vim-plug installation)
-make zsh            # Setup Zsh configuration
-make homebrew       # Setup Homebrew and install all packages from Brewfile
-make diff-highlight # Setup diff-highlight for Git
-make flutter        # Setup Flutter development environment with fvm
-make claude-code    # Setup Claude Code configuration (CLAUDE.md, settings.json, and statusline.sh)
-```
-
-### macOS System Configuration
-```bash
-./scripts/osx-config.sh  # Configure macOS system preferences (keyboard, trackpad, Finder, etc.)
+make              # Display available make targets
+make <target>     # Run specific setup (e.g., make git, make zsh)
+./scripts/osx-config.sh  # Configure macOS system preferences
 ```
 
 ## Architecture
 
-### Directory Structure
-- **Root dotfiles**: `.gitconfig`, `.tmux.conf`, `.vimrc`, `.zshrc`, `.tigrc` - symlinked to home directory
-- **`.config/`**: XDG config directory structure
-  - **`alacritty/`**: Alacritty terminal emulator configuration
-  - **`git/`**: Git global ignore file
-- **`.ssh/`**: SSH configuration files and config.d directory
-- **`claude/`**: Claude Code specific configurations
-  - **`CLAUDE.md`**: Conversation rules and coding guidelines
-  - **`settings.json`**: Claude Code settings
-  - **`statusline.sh`**: Custom status line script for Claude Code
-- **`scripts/`**: Shell scripts for system configuration
-- **`Brewfile`**: Homebrew bundle file defining all packages to install
-
-### Key Configuration Details
-
-1. **Git Setup**: Includes main gitconfig, work-specific gitconfig (gitconfig-yamareco), global gitignore, and tigrc
-2. **Shell Environment**: Zsh with custom configurations, supports both Intel and Apple Silicon Macs (detects architecture for Homebrew)
-3. **Development Tools**: Includes configurations for multiple languages (Go, Node.js, PHP, Python, Flutter) via anyenv
-4. **Claude Code Integration**: Symlinks local claude/ directory contents to ~/.claude/ for global Claude preferences
-
 ### Symlink Strategy
 
-All configurations use symlinks (`ln -vsf`) from the repository to their expected locations in the home directory. This allows version control of configurations while keeping them in their standard locations.
+All configurations use `ln -vsf` to symlink from this repository to their expected locations (`~/.gitconfig`, `~/.config/`, `~/.ssh/`, etc.). Edit files here, not at symlinked destinations.
 
-## Development Workflow
+### Key Directories
 
-When modifying configurations:
-1. Edit files in this repository (not in their symlinked locations)
-2. Test changes locally
-3. Commit changes to track configuration evolution
+- **Root**: Dotfiles symlinked directly to home (`.gitconfig`, `.tmux.conf`, `.vimrc`, `.zshrc`, `.tigrc`)
+- **`.config/`**: XDG config (alacritty, git ignore)
+- **`.ssh/`**: SSH config with modular `conf.d/` includes
+- **`claude/`**: Claude Code configurations → symlinked to `~/.claude/`
+  - `commands/`: Custom slash commands (`/git-commit`, `/gh-open-pr`)
+  - `statusline.sh`: Displays current directory, git branch, and usage via `ccusage`
+- **`scripts/`**: System configuration scripts
 
-## Important Notes
+### Git Configuration
 
-- The repository includes both personal (`.gitconfig-yamareco`) and general Git configurations
-- Homebrew autoupdate is enabled during setup
-- macOS system preferences script (`osx-config.sh`) makes extensive system modifications
-- Claude Code preferences in `claude/CLAUDE.md` specify Japanese language for user interactions while keeping code/commits in English
+Supports multiple identities: main `.gitconfig` with conditional include for work-specific `.gitconfig-yamareco`.
+
+### Shell Environment
+
+Zsh configuration auto-detects Intel vs Apple Silicon for correct Homebrew paths.
