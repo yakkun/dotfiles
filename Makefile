@@ -41,10 +41,6 @@ homebrew: ## Setup Homebrew configuration
 	brew bundle
 	brew autoupdate start --cleanup
 
-.PHONY: diff-highlight
-diff-highlight: ## Setup diff-highlight
-	ln -sf `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight `brew --prefix`/bin/
-
 .PHONY: flutter
 flutter: ## Setup Flutter dev env
 	fvm install stable

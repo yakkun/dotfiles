@@ -24,16 +24,19 @@
   editor = vim
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   commentchar = ";"
-  pager = diff-highlight | less
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  line-numbers = true
+  side-by-side = false
+  dark = true
 
 [color]
   ui = auto
-
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
 
 [color "diff"]
   commit = green
