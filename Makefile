@@ -36,6 +36,7 @@ zsh: ## Setup Zsh configuration
 	ln -vsf ${PWD}/.zshrc ${HOME}/
 	mkdir -p ${HOME}/.config/sheldon
 	ln -vsf ${PWD}/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/
+	ln -vsf ${PWD}/.config/starship.toml ${HOME}/.config/
 
 .PHONY: homebrew
 homebrew: ## Setup Homebrew configuration

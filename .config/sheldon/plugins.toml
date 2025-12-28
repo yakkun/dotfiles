@@ -21,14 +21,6 @@ github = "zsh-users/zsh-completions"
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
 
-# zsh-async (required by pure theme)
-[plugins.zsh-async]
-github = "mafredri/zsh-async"
-
-# Pure theme
-[plugins.pure]
-github = "sindresorhus/pure"
-
 # Enhanced cd with fuzzy matching
 [plugins.enhancd]
 github = "b4b4r07/enhancd"

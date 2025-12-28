@@ -1,0 +1,31 @@
+# Starship Configuration
+# https://starship.rs/config/
+
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = 'red'
+stashed = '\$${count} '
+modified = '!${count} '
+staged = '+${count} '
+untracked = '?${count} '
+deleted = 'x${count} '
+renamed = '»${count} '
+conflicted = '=${count} '
+ahead = '⇡${count} '
+behind = '⇣${count} '
+diverged = '⇕${ahead_count}⇣${behind_count} '
+
+[cmd_duration]
+format = '[$duration]($style) '
+min_time = 1000
+show_milliseconds = true
+
+[status]
+disabled = false
