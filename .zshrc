@@ -99,6 +99,16 @@ alias flutter='fvm flutter'
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 
 # ===== Functions =====
+# Claude Code with split terminal (80%/20%)
+cc() {
+  if [[ -z "$TMUX" ]]; then
+    echo "tmux session required"
+    return 1
+  fi
+  tmux split-window -v -l 20%
+  tmux select-pane -U
+  claude "$@"
+}
 # Change directory with ghq list (Ctrl-G)
 function cd-fzf-ghqlist() {
   local GHQ_ROOT=$(ghq root)
