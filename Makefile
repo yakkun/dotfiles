@@ -26,10 +26,15 @@ ssh: ## Setup ssh configuration
 	ln -vsf ${PWD}/.ssh/conf.d ${HOME}/.ssh/
 	ln -vsf ${PWD}/.ssh/config ${HOME}/.ssh/
 
-.PHONY: vim
-vim: ## Setup Vim configuration
-	ln -vsf ${PWD}/.vimrc ${HOME}/
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+.PHONY: nvim
+nvim: ## Setup Neovim configuration (LazyVim)
+	mkdir -p ${HOME}/.config/nvim/lua/config ${HOME}/.config/nvim/lua/plugins
+	ln -vsf ${PWD}/.config/nvim/init.lua ${HOME}/.config/nvim/
+	ln -vsf ${PWD}/.config/nvim/lua/config/lazy.lua ${HOME}/.config/nvim/lua/config/
+	ln -vsf ${PWD}/.config/nvim/lua/config/options.lua ${HOME}/.config/nvim/lua/config/
+	ln -vsf ${PWD}/.config/nvim/lua/config/keymaps.lua ${HOME}/.config/nvim/lua/config/
+	ln -vsf ${PWD}/.config/nvim/lua/config/autocmds.lua ${HOME}/.config/nvim/lua/config/
+	ln -vsf ${PWD}/.config/nvim/lua/plugins/editor.lua ${HOME}/.config/nvim/lua/plugins/
 
 .PHONY: zsh
 zsh: ## Setup Zsh configuration

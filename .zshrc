@@ -9,7 +9,7 @@ fi
 export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
-export EDITOR=vim
+export EDITOR=nvim
 export GPG_TTY=$(tty)
 
 # Zsh options
@@ -90,7 +90,7 @@ type go >/dev/null && export GOPATH=$HOME/go && export PATH=$PATH:$GOPATH/bin
 alias ls='eza'
 alias ll='eza -l -a --git'
 alias tree='eza -T --group-directories-first --level 2'
-type vim >/dev/null && alias vi='vim'
+type nvim >/dev/null && alias vi='nvim' && alias vim='nvim'
 alias grep='grep --color'
 type docker >/dev/null && alias dc='docker compose'
 alias flutter='fvm flutter'
