@@ -1,0 +1,48 @@
+# Font
+font-family = "PlemolJP Console NF"
+font-size = 13
+font-feature = calt
+font-feature = liga
+adjust-cell-height = -2
+
+# Window
+title = Ghostty
+window-padding-x = 4
+window-padding-y = 4
+background-opacity = 0.9
+background-blur-radius = 20
+window-save-state = always
+
+# Cursor
+cursor-color = 1bc71d
+cursor-style-blink = true
+
+# Selection
+copy-on-select = true
+
+# macOS
+macos-option-as-alt = true
+
+# Color scheme (Monokai Pro)
+background = 2d2a2e
+foreground = fcfcfa
+
+# Normal colors
+palette = 0=#403e41
+palette = 1=#ff6188
+palette = 2=#a9dc76
+palette = 3=#ffd866
+palette = 4=#fc9867
+palette = 5=#ab9df2
+palette = 6=#78dce8
+palette = 7=#fcfcfa
+
+# Bright colors
+palette = 8=#727072
+palette = 9=#ff6188
+palette = 10=#a9dc76
+palette = 11=#ffd866
+palette = 12=#fc9867
+palette = 13=#ab9df2
+palette = 14=#78dce8
+palette = 15=#fcfcfa

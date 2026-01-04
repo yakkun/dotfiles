@@ -4,10 +4,10 @@
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: alacritty
-alacritty: ## Setup Alacritty configuration
-	mkdir -p ${HOME}/.config/alacritty
-	ln -vsf ${PWD}/.config/alacritty/alacritty.toml ${HOME}/.config/alacritty/alacritty.toml
+.PHONY: ghostty
+ghostty: ## Setup Ghostty configuration
+	mkdir -p ${HOME}/.config/ghostty
+	ln -vsf ${PWD}/.config/ghostty/config ${HOME}/.config/ghostty/config
 
 .PHONY: tmux
 tmux: ## Setup tmux configuration
