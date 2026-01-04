@@ -85,9 +85,6 @@ fi
 export LESS='-R'
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 type brew >/dev/null && export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$(brew --prefix)/opt/grep/libexec/gnubin:$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
-type nodebrew >/dev/null && export PATH=$PATH:$HOME/.nodebrew/current/bin
-type rvm >/dev/null && export PATH=$PATH:$HOME/.rvm/bin
-type go >/dev/null && export GOPATH=$HOME/go && export PATH=$PATH:$GOPATH/bin
 
 # Aliases
 alias ls='eza'
@@ -129,13 +126,8 @@ cdf() {
 }
 # ===== /Functions =====
 
-# Init applications
-type direnv >/dev/null && eval "$(direnv hook zsh)"
-type anyenv >/dev/null && eval "$(anyenv init -)"
-if [[ "$(uname)" == 'Darwin' ]] && type gcloud >/dev/null; then
-  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-fi
+# mise (runtime version manager)
+type mise >/dev/null && eval "$(mise activate zsh)"
 
 # zoxide (smarter cd)
 type zoxide >/dev/null && eval "$(zoxide init zsh)"
