@@ -17,17 +17,9 @@ github = "romkatv/zsh-defer"
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
-# Initialize completions (must be before enhancd and after zsh-completions)
+# Initialize completions
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
-
-# Enhanced cd with fuzzy matching
-[plugins.enhancd]
-github = "b4b4r07/enhancd"
-
-# Directory jump (z)
-[plugins.z]
-github = "rupa/z"
 
 # Auto suggestions
 [plugins.zsh-autosuggestions]

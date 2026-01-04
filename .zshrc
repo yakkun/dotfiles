@@ -54,9 +54,6 @@ if type sheldon >/dev/null; then
 fi
 
 # Configure for plugins
-# enhancd
-export ENHANCD_FILTER="fzf --height 40% --preview='eza --tree --group-directories-first --level 1 {}'"
-export ENHANCD_ENABLE_DOUBLE_DOT=false
 # history-substring-search keybindings
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
@@ -65,6 +62,12 @@ bindkey -M emacs '^N' history-substring-search-down
 # fzf
 type fzf >/dev/null && source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 20% --tmux bottom,20% --layout reverse --border top'
+# Use fd for fzf (faster than find)
+if type fd >/dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+fi
 
 # bat
 if type bat >/dev/null; then
@@ -133,6 +136,9 @@ if [[ "$(uname)" == 'Darwin' ]] && type gcloud >/dev/null; then
   source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
   source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
+
+# zoxide (smarter cd)
+type zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # Starship prompt
 type starship >/dev/null && eval "$(starship init zsh)"
