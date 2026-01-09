@@ -11,6 +11,7 @@ format = "[$symbol$branch(:$remote_branch)]($style) "
 [git_status]
 format = '([$all_status$ahead_behind]($style) )'
 style = 'red'
+up_to_date = '✓'
 stashed = '\$${count} '
 modified = '!${count} '
 staged = '+${count} '
