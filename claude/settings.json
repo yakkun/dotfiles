@@ -27,5 +27,11 @@
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
-  "alwaysThinkingEnabled": false
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "serena@claude-plugins-official": true
+  },
+  "language": "Japanese"
 }
