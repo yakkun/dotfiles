@@ -2,6 +2,9 @@
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
+  "permissions": {
+    "defaultMode": "auto"
+  },
   "model": "opus",
   "hooks": {
     "Stop": [
@@ -27,7 +30,5 @@
     "serena@claude-plugins-official": true
   },
   "language": "Japanese",
-  "permissions": {
-    "defaultMode": "acceptEdits"
-  }
+  "skipAutoPermissionPrompt": true
 }
