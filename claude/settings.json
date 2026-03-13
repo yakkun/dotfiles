@@ -1,16 +1,9 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "model": "opus",
   "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Require your confirmation\" with title \"Claude Code is waiting\" sound name \"Glass\"'"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "matcher": "",
@@ -34,7 +27,7 @@
     "serena@claude-plugins-official": true
   },
   "language": "Japanese",
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  "permissions": {
+    "defaultMode": "acceptEdits"
   }
 }
