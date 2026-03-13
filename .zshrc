@@ -99,15 +99,52 @@ alias flutter='fvm flutter'
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 
 # ===== Functions =====
-# Claude Code with split terminal (80%/20%)
-cc() {
+# My cockpit with Claude Code
+# Usage: cockpit [-n NUM] [DIR]
+#   -n NUM  Number of Claude panes (default: 3)
+#   DIR     Working directory (default: current directory)
+cockpit() {
   if [[ -z "$TMUX" ]]; then
     echo "tmux session required"
     return 1
   fi
-  tmux split-window -v -l 20%
-  tmux select-pane -U
-  claude "$@"
+  local num=3
+  while getopts "n:" opt; do
+    case $opt in
+      n) num=$OPTARG ;;
+      *) echo "Usage: cockpit [-n NUM] [DIR]"; return 1 ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+  OPTIND=1
+  if [[ $num -lt 1 || $num -gt 8 ]]; then
+    echo "Number of panes must be between 1 and 8"
+    return 1
+  fi
+  local dir="${1:-$(pwd)}"
+  local bottom_pane=$((num + 1))
+  tmux new-window -n cockpit -c "$dir"
+  # Split top 80% / bottom 20% (focus moves to bottom pane)
+  tmux split-window -v -l 20% -c "$dir"
+  # Split bottom into left terminal / right git status monitor
+  tmux split-window -h -l 30% -c "$dir"
+  tmux send-keys "$HOME/ghq/github.com/yakkun/dotfiles/scripts/git-monitor.sh" C-m
+  # Go to top pane and split into N equal columns
+  tmux select-pane -t :.1
+  local i
+  for ((i = 1; i < num; i++)); do
+    tmux split-window -h -l $((100 * (num - i) / (num - i + 1)))% -c "$dir"
+  done
+  # Keep layout proportions on window resize
+  tmux set-hook -w window-resized \
+    "run-shell 'w=\$(tmux display -p \"#{window_width}\"); h=\$(tmux display -p \"#{window_height}\"); t=\$((w / $num)); b=\$((h * 20 / 100)); tmux resize-pane -t :.$bottom_pane -y \$b 2>/dev/null; for i in \$(seq 1 $((num - 1))); do tmux resize-pane -t :.\$i -x \$t 2>/dev/null; done'"
+  # Launch claude in each of the top panes
+  for ((i = 1; i <= num; i++)); do
+    tmux send-keys -t :.$i 'claude' C-m
+  done
+  # Set last-pane to terminal so C-S-c toggles between Claude and terminal
+  tmux select-pane -t :.$bottom_pane
+  tmux select-pane -t :.1
 }
 # Change directory with ghq list (Ctrl-G)
 function cd-fzf-ghqlist() {
