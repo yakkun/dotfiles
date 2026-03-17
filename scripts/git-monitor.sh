@@ -12,6 +12,7 @@ readonly RED='\033[31m'
 readonly YELLOW='\033[33m'
 readonly CYAN='\033[36m'
 readonly MAGENTA='\033[35m'
+readonly EL='\033[K'
 
 interval="${1:-1}"
 
@@ -25,7 +26,7 @@ render() {
 
   # Check if inside a git repo
   if ! git rev-parse --is-inside-work-tree &>/dev/null; then
-    buf+="${RED}Not a git repository${RESET}\n"
+    buf+="${RED}Not a git repository${EL}${RESET}\n"
     echo -en "$buf"
     return
   fi
@@ -38,7 +39,7 @@ render() {
   fi
   local commit_msg
   commit_msg=$(git log -1 --format='%s' 2>/dev/null || echo '')
-  buf+="${BOLD}${CYAN} ${branch}${RESET} ${DIM}${commit_msg}${RESET}\n"
+  buf+="${BOLD}${CYAN} ${branch}${RESET} ${DIM}${commit_msg}${EL}${RESET}\n"
 
   # ── Upstream status ──
   local upstream
@@ -51,10 +52,10 @@ render() {
     [[ "$ahead" -gt 0 ]] && sync+="${GREEN}↑${ahead}${RESET} "
     [[ "$behind" -gt 0 ]] && sync+="${RED}↓${behind}${RESET} "
     [[ -z "$sync" ]] && sync="${DIM}in sync${RESET}"
-    buf+="  ${DIM}↔ ${upstream}${RESET}  ${sync}\n"
+    buf+="  ${DIM}↔ ${upstream}${RESET}  ${sync}${EL}\n"
   fi
 
-  buf+="\n"
+  buf+="${EL}\n"
 
   # ── Diff stats (staged + unstaged) ──
   local staged_add=0 staged_del=0 unstaged_add=0 unstaged_del=0
@@ -74,16 +75,16 @@ render() {
   local total_del=$((staged_del + unstaged_del))
 
   if [[ $total_add -gt 0 || $total_del -gt 0 ]]; then
-    buf+="${BOLD}Modified:${RESET} ${GREEN}+${total_add}${RESET} ${RED}-${total_del}${RESET} ${DIM}(staged ${GREEN}+${staged_add}${RESET}${DIM} ${RED}-${staged_del}${RESET}${DIM})${RESET}\n"
+    buf+="${BOLD}Modified:${RESET} ${GREEN}+${total_add}${RESET} ${RED}-${total_del}${RESET} ${DIM}(staged ${GREEN}+${staged_add}${RESET}${DIM} ${RED}-${staged_del}${RESET}${DIM})${EL}${RESET}\n"
   fi
 
-  buf+="\n"
+  buf+="${EL}\n"
 
   # ── File status ──
   local status_output
   status_output=$(git status -s 2>/dev/null)
   if [[ -z "$status_output" ]]; then
-    buf+="${DIM}Clean working tree${RESET}\n"
+    buf+="${DIM}Clean working tree${EL}${RESET}\n"
   else
     while IFS= read -r line; do
       local idx="${line:0:1}"
@@ -98,7 +99,7 @@ render() {
       if [[ "$wt" == "M" || "$wt" == "D" ]]; then
         color="$YELLOW"
       fi
-      buf+="${color}${idx}${wt}${RESET} ${file}\n"
+      buf+="${color}${idx}${wt}${RESET} ${file}${EL}\n"
     done <<<"$status_output"
   fi
 
