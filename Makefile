@@ -60,4 +60,5 @@ claude-code: ## Setup Claude code
 	ln -vsf ${PWD}/claude/settings.json ${HOME}/.claude/
 	ln -vsf ${PWD}/claude/statusline.sh ${HOME}/.claude/
 	ln -vsfn ${PWD}/claude/commands ${HOME}/.claude/
+	ln -vsfn ${PWD}/claude/skills ${HOME}/.claude/
 	ln -vsfn ${PWD}/claude/hooks ${HOME}/.claude/
