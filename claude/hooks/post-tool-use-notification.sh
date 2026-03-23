@@ -1,8 +1,9 @@
 #!/bin/bash
 
 EVENT=$(cat)
-MSG=$(echo "$EVENT" | jq -r '.last_assistant_message // "Done."' | sed 's/[\\"/]/ /g')
+MSG=$(echo "$EVENT" | jq -r '.last_assistant_message // "Agent finished."' | sed 's/[\\"/]/ /g')
 PROJECT=$(echo "$EVENT" | jq -r '.cwd // ""' | xargs basename)
+TOOL=$(echo "$EVENT" | jq -r '.tool_name // ""')
 
 TITLE="Claude Code"
 if [ -n "$PROJECT" ]; then
@@ -11,9 +12,5 @@ fi
 
 # Cmux
 if [ -n "$CMUX_SOCKET_PATH" ] && [ -S "$CMUX_SOCKET_PATH" ]; then
-  cmux notify --title "$TITLE" --body "$MSG"
-else
-  osascript <<EOF
-display notification "$MSG" with title "$TITLE" sound name "Pop"
-EOF
+  [ "$TOOL" = "Task" ] && cmux notify --title "$TITLE" --body "$MSG"
 fi

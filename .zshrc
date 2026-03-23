@@ -171,8 +171,3 @@ type zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # Starship prompt
 type starship >/dev/null && eval "$(starship init zsh)"
-
-# Auto start tmux
-if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
-  tmux attach >/dev/null 2>&1 || tmux new
-fi
