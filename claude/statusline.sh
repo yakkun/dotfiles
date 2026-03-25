@@ -22,18 +22,19 @@ CYAN='\033[36m'
 
 # Color a percentage value: green < 50, yellow 50-79, red >= 80
 pct_color() {
-    local pct=${1:-0}
-    if [ "$pct" -lt 50 ]; then   printf '%b' "$GREEN"
-    elif [ "$pct" -lt 80 ]; then printf '%b' "$YELLOW"
-    else                         printf '%b' "$RED"
+    local pct_int
+    pct_int=$(printf '%.0f' "${1:-0}")
+    if [ "$pct_int" -lt 50 ]; then   printf '%b' "$GREEN"
+    elif [ "$pct_int" -lt 80 ]; then printf '%b' "$YELLOW"
+    else                              printf '%b' "$RED"
     fi
 }
 
 # Format token counts: 1234567 -> "1.2m", 45000 -> "45.0k", 800 -> "800"
 fmt_tokens() {
     local n=$1
-    if   [ "$n" -ge 1000000 ]; then printf "%.1fm" "$(echo "scale=1; $n / 1000000" | bc)"
-    elif [ "$n" -ge 1000 ];    then printf "%.1fk" "$(echo "scale=1; $n / 1000" | bc)"
+    if   [ "$n" -ge 1000000 ]; then awk "BEGIN{printf \"%.1fm\", $n/1000000}"
+    elif [ "$n" -ge 1000 ];    then awk "BEGIN{printf \"%.1fk\", $n/1000}"
     else                             printf "%d" "$n"
     fi
 }
@@ -44,12 +45,9 @@ fmt_tokens() {
 eval "$(echo "$input" | jq -r '
     @sh "DIR=\(.workspace.current_dir)",
     @sh "MODEL=\(.model.display_name // .model.id // "???")",
-    @sh "CTX_SIZE=\(.context_window.context_window_size // 0)",
     @sh "IN_TOKENS=\(.context_window.total_input_tokens // 0)",
     @sh "OUT_TOKENS=\(.context_window.total_output_tokens // 0)",
-    @sh "USAGE_INPUT=\(.context_window.current_usage.input_tokens // 0)",
-    @sh "USAGE_CACHE_W=\(.context_window.current_usage.cache_creation_input_tokens // 0)",
-    @sh "USAGE_CACHE_R=\(.context_window.current_usage.cache_read_input_tokens // 0)",
+    @sh "CTX_PCT=\(.context_window.used_percentage // "")",
     @sh "RATE_5H=\(.rate_limits.five_hour.used_percentage // "")",
     @sh "RATE_7D=\(.rate_limits.seven_day.used_percentage // "")",
     @sh "COST=\(.cost.total_cost_usd // 0)"
@@ -74,10 +72,9 @@ model_display="${CYAN}${MODEL}${RESET}"
 # ---------------------------------------------------------------------------
 # Context window usage
 # ---------------------------------------------------------------------------
-if [ "$CTX_SIZE" -gt 0 ]; then
-    current=$((USAGE_INPUT + USAGE_CACHE_W + USAGE_CACHE_R))
-    pct=$((current * 100 / CTX_SIZE))
-    ctx_display="$(pct_color "$pct")${pct}%${RESET}"
+if [ -n "$CTX_PCT" ]; then
+    CTX_PCT=$(printf '%.1f' "$CTX_PCT")
+    ctx_display="$(pct_color "$CTX_PCT")${CTX_PCT}%${RESET}"
 else
     ctx_display="${DIM}--%${RESET}"
 fi
@@ -95,6 +92,8 @@ fi
 # Rate limits (5h / 7d)
 # ---------------------------------------------------------------------------
 if [ -n "$RATE_5H" ] && [ -n "$RATE_7D" ]; then
+    RATE_5H=$(printf '%.1f' "$RATE_5H")
+    RATE_7D=$(printf '%.1f' "$RATE_7D")
     rate_display="5h:$(pct_color "$RATE_5H")${RATE_5H}%${RESET} 7d:$(pct_color "$RATE_7D")${RATE_7D}%${RESET}"
 else
     rate_display="${DIM}5h:--% 7d:--%${RESET}"
@@ -112,4 +111,4 @@ fi
 # ---------------------------------------------------------------------------
 # Output
 # ---------------------------------------------------------------------------
-echo -e "${dir_name}${git_branch} ${model_display} ${ctx_display} ${tokens_display} ${rate_display} ${cost_display}"
+echo -e "${dir_name}${git_branch} ${model_display} ${ctx_display} ${tokens_display} ${cost_display} ${rate_display}"
