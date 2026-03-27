@@ -14,3 +14,5 @@ fi
 if [ -n "$CMUX_SOCKET_PATH" ] && [ -S "$CMUX_SOCKET_PATH" ]; then
   [ "$TOOL" = "Task" ] && cmux notify --title "$TITLE" --body "$MSG"
 fi
+
+exit 0
