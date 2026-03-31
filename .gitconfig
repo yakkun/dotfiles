@@ -10,11 +10,10 @@
   tags = tag
   log = log --stat
   tree = log --graph --date=short --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
-  delete-merged-branches = !git --no-pager branch --merged | grep -vE '^\\*| master$| trunk$| main$| release$| develop$' | xargs -r git branch -d
+  sync = "!git fetch -q && git --no-pager branch --merged | grep -vE '^\\\\*| master$| trunk$| main$| release$| develop$' | xargs -r git branch -d && git --no-pager branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D"
   remotes = remote -v
   stashes = stash list
   aliases = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /"
-  sync = "!git fetch origin --recurse-submodules=no --quiet --prune && git merge --ff-only"
   diffc = diff --cached
   pushf = push --force-with-lease
   w = worktree
