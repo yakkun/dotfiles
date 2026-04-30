@@ -65,6 +65,7 @@ cask "font-plemol-jp-nf"
 cask "font-ricty-diminished"
 cask "ghostty"
 cask "google-chrome@beta"
+cask "google-gemini"
 cask "istat-menus"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"
@@ -83,7 +84,6 @@ cask "visual-studio-code@insiders"
 cask "zoom"
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
-mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
