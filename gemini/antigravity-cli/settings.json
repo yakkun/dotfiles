@@ -1,0 +1,12 @@
+{
+  "allowNonWorkspaceAccess": true,
+  "altScreenMode": "always",
+  "notifications": true,
+  "permissions": {
+    "allow": [
+      "command(*)"
+    ]
+  },
+  "runningLightSpeed": "off",
+  "showFeedbackSurvey": false
+}

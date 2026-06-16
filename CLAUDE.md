@@ -19,6 +19,7 @@ make zsh            # Setup Zsh, sheldon plugins, starship prompt
 make homebrew       # Symlink Brewfile, run brew bundle, enable autoupdate
 make flutter        # Install stable Flutter via fvm
 make claude-code    # Setup Claude Code (CLAUDE.md, settings, statusline, commands, skills, hooks)
+make gemini         # Setup Gemini/Antigravity configuration (settings, keybindings, common config)
 ./scripts/osx-config.sh  # Configure macOS system preferences
 ```
 
@@ -40,6 +41,10 @@ All configurations use `ln -vsf` (files) or `ln -vsfn` (directories) to symlink 
   - `skills/`: Custom skills
   - `hooks/`: Notification hooks (Stop → desktop/cmux notification, PostToolUse/Task → cmux notification)
   - `statusline.sh`: Displays directory, git branch, model, context usage, tokens, rate limits, cost
+- **`gemini/`**: Gemini (Antigravity) configurations → symlinked to `~/.gemini/`
+  - `antigravity-cli/settings.json`: Permissions, output options, general settings
+  - `antigravity-cli/keybindings.json`: Hotkeys and shortcut keys
+  - `config/config.json`: Theme mode and common user settings
 - **`scripts/`**: `osx-config.sh` (macOS preferences), `git-monitor.sh` (cockpit git status pane)
 
 ### Git Configuration

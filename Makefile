@@ -62,3 +62,11 @@ claude-code: ## Setup Claude code
 	ln -vsfn ${PWD}/claude/commands ${HOME}/.claude/
 	ln -vsfn ${PWD}/claude/skills ${HOME}/.claude/
 	ln -vsfn ${PWD}/claude/hooks ${HOME}/.claude/
+
+.PHONY: gemini
+gemini: ## Setup Gemini (Antigravity) configuration
+	mkdir -p ${HOME}/.gemini/antigravity-cli ${HOME}/.gemini/config
+	ln -vsf ${PWD}/gemini/antigravity-cli/settings.json ${HOME}/.gemini/antigravity-cli/settings.json
+	ln -vsf ${PWD}/gemini/antigravity-cli/keybindings.json ${HOME}/.gemini/antigravity-cli/keybindings.json
+	ln -vsf ${PWD}/gemini/config/config.json ${HOME}/.gemini/config/config.json
+
