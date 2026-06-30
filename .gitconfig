@@ -9,7 +9,7 @@
   branches = branch -a
   tags = tag
   log = log --stat
-  tree = log --graph --date=short --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+  tree = log --graph --graph-lane-limit=10 --date=short --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
   sync = "!git fetch -q && git --no-pager branch --merged | grep -vE '^\\\\*| master$| trunk$| main$| release$| develop$' | xargs -r git branch -d && git --no-pager branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D"
   remotes = remote -v
   stashes = stash list
