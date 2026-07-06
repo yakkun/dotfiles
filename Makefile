@@ -11,15 +11,22 @@ ghostty: ## Setup Ghostty configuration
 
 .PHONY: tmux
 tmux: ## Setup tmux configuration
-	ln -vsf ${PWD}/.tmux.conf ${HOME}/
+	ln -vsf ${PWD}/.tmux.conf ${HOME}/.tmux.conf
 
 .PHONY: git
 git: ## Setup Git configuration
-	ln -vsf ${PWD}/.gitconfig ${HOME}/
-	ln -vsf ${PWD}/.gitconfig-yamareco ${HOME}/
+	ln -vsf ${PWD}/.gitconfig ${HOME}/.gitconfig
+	ln -vsf ${PWD}/.gitconfig-yamareco ${HOME}/.gitconfig-yamareco
 	mkdir -p ${HOME}/.config/git
 	ln -vsf ${PWD}/.config/git/ignore ${HOME}/.config/git/ignore
-	ln -vsf ${PWD}/.tigrc ${HOME}/
+	ln -vsf ${PWD}/.tigrc ${HOME}/.tigrc
+	@if command -v git-secrets >/dev/null 2>&1; then \
+		mkdir -p $(HOME)/.git-templates/git-secrets; \
+		git config --global init.templateDir $(HOME)/.git-templates/git-secrets; \
+		git secrets --install -f $(HOME)/.git-templates/git-secrets; \
+	else \
+		echo "skip: git-secrets not installed (run make homebrew)"; \
+	fi
 
 .PHONY: ssh
 ssh: ## Setup ssh configuration
@@ -38,14 +45,14 @@ nvim: ## Setup Neovim configuration (LazyVim)
 
 .PHONY: zsh
 zsh: ## Setup Zsh configuration
-	ln -vsf ${PWD}/.zshrc ${HOME}/
+	ln -vsf ${PWD}/.zshrc ${HOME}/.zshrc
 	mkdir -p ${HOME}/.config/sheldon
-	ln -vsf ${PWD}/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/
-	ln -vsf ${PWD}/.config/starship.toml ${HOME}/.config/
+	ln -vsf ${PWD}/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/plugins.toml
+	ln -vsf ${PWD}/.config/starship.toml ${HOME}/.config/starship.toml
 
 .PHONY: homebrew
 homebrew: ## Setup Homebrew configuration
-	ln -vsf ${PWD}/Brewfile ${HOME}/
+	ln -vsf ${PWD}/Brewfile ${HOME}/Brewfile
 	brew bundle
 	brew autoupdate start --cleanup
 
