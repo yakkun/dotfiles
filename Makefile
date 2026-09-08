@@ -54,7 +54,6 @@ zsh: ## Setup Zsh configuration
 homebrew: ## Setup Homebrew configuration
 	ln -vsf ${PWD}/Brewfile ${HOME}/Brewfile
 	brew bundle
-	brew autoupdate start --cleanup
 
 .PHONY: flutter
 flutter: ## Setup Flutter dev env
