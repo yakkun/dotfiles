@@ -1,3 +1,4 @@
+tap "abue-ammar/tinycast", trusted: true
 tap "leoafarias/fvm", trusted: true
 brew "aspell"
 brew "awscli"
@@ -70,11 +71,11 @@ cask "mitmproxy"
 cask "notion"
 cask "orbstack"
 cask "proxyman"
-cask "raycast"
 cask "sequel-ace"
 cask "sf-symbols"
 cask "slack@beta"
 cask "tableplus"
+cask "abue-ammar/tinycast/tinycast", trusted: true
 cask "zoom"
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
