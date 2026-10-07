@@ -1,6 +1,5 @@
 {
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_NO_FLICKER": "1"
   },
   "permissions": {
@@ -17,29 +16,14 @@
           }
         ]
       }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Task",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/post-tool-use-notification.sh"
-          }
-        ]
-      }
     ]
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
-  "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "serena@claude-plugins-official": true
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 60
   },
   "language": "Japanese",
+  "theme": "dark-daltonized",
   "skipAutoPermissionPrompt": true
 }
