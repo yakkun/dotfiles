@@ -1,22 +1,6 @@
 {
-  "env": {
-    "CLAUDE_CODE_NO_FLICKER": "1"
-  },
   "permissions": {
     "defaultMode": "auto"
-  },
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/stop-notification.sh"
-          }
-        ]
-      }
-    ]
   },
   "statusLine": {
     "type": "command",
@@ -25,5 +9,8 @@
   },
   "language": "Japanese",
   "theme": "dark-daltonized",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen",
+  "cleanupPeriodDays": 365,
+  "spinnerTipsEnabled": false
 }

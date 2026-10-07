@@ -18,7 +18,7 @@ make nvim           # Setup Neovim (LazyVim) config
 make zsh            # Setup Zsh, sheldon plugins, starship prompt
 make homebrew       # Symlink Brewfile, run brew bundle, enable autoupdate
 make flutter        # Install stable Flutter via fvm
-make claude-code    # Setup Claude Code (CLAUDE.md, settings, statusline, commands, hooks)
+make claude-code    # Setup Claude Code (CLAUDE.md, settings, statusline, commands)
 make gemini         # Setup Gemini/Antigravity configuration (settings, keybindings, common config)
 ./scripts/osx-config.sh  # Configure macOS system preferences
 ```
@@ -36,15 +36,14 @@ All configurations use `ln -vsf` (files) or `ln -vsfn` (directories) to symlink 
 - **`.ssh/`**: SSH config with modular `conf.d/` includes (+ `conf.d/confidential/` gitignored for private hosts)
 - **`claude/`**: Claude Code configurations → symlinked to `~/.claude/`
   - `CLAUDE.md`: Global user instructions (conversation in Japanese, code in English)
-  - `settings.json`: Permissions, hooks, statusline
+  - `settings.json`: Permissions, statusline, UI preferences
   - `commands/`: Custom slash commands (cmux-open-pr, cmux-open-repo)
-  - `hooks/`: Notification hooks (Stop → desktop/cmux notification)
   - `statusline.sh`: Displays directory, git branch, PR, model + effort, context usage, rate limits with reset time
 - **`gemini/`**: Gemini (Antigravity) configurations → symlinked to `~/.gemini/`
   - `antigravity-cli/settings.json`: Permissions, output options, general settings
   - `antigravity-cli/keybindings.json`: Hotkeys and shortcut keys
   - `config/config.json`: Theme mode and common user settings
-- **`scripts/`**: `osx-config.sh` (macOS preferences), `git-monitor.sh` (cockpit git status pane)
+- **`scripts/`**: `osx-config.sh` (macOS preferences)
 
 ### Git Configuration
 
@@ -59,9 +58,8 @@ All configurations use `ln -vsf` (files) or `ln -vsfn` (directories) to symlink 
 - Zsh auto-detects Intel vs Apple Silicon for correct Homebrew paths
 - Plugin manager: sheldon (with zsh-defer for lazy loading)
 - Prompt: starship; Runtime manager: mise; Smart cd: zoxide
-- `cockpit` shell function: creates a tmux multi-pane Claude Code workspace (N Claude panes + terminal + git-monitor)
 - Ctrl-G: fzf-powered directory switching via `ghq list`
 
 ### Notification System
 
-Hooks in `claude/hooks/` send notifications via cmux (if available) or macOS `osascript`. This integrates with the cockpit workflow where multiple Claude instances run in tmux panes. Cursor Agent also loads `~/.claude` hooks for compatibility; the notification script no-ops when `CURSOR_VERSION` / `CURSOR_PROJECT_DIR` is set so it only fires under Claude Code.
+No custom Claude Code hooks are kept here. Inside cmux, the cmux `claude` wrapper injects its own hooks (Stop, Notification, SubagentStop, etc.) for notifications and status; elsewhere, Claude Code's built-in notifications (`preferredNotifChannel` default `auto`) are used.

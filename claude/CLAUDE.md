@@ -62,8 +62,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## 5. Languages
 
-Communication with the operator is in Japanese.
-Other comments/messages (eg. inline code comments, commit messages) are basically in English.
+Code comments and commit messages are in English (conversation language is set via `language` in settings.json).
 
 ---
 
